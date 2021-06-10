@@ -2,7 +2,10 @@ package com.care.turbo.hilt.di
 import com.care.turbo.hilt.BuildConfig
 
 import com.care.turbo.hilt.data.api.ApiHelper
+import com.care.turbo.hilt.data.api.ApiHelperImpl
 import com.care.turbo.hilt.data.api.ApiService
+import com.care.turbo.hilt.data.repository.MainRepository
+import com.care.turbo.hilt.utils.NetworkHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,11 +44,12 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideApiHelper(apiHelper: ApiHelper):ApiHelper = apiHelper
+    fun provideApiHelper(apiHelper: ApiHelperImpl):ApiHelper = apiHelper
 
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit):ApiService =retrofit.create(ApiService::class.java)
+
 
 
 }

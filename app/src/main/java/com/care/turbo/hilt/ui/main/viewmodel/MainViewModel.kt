@@ -1,7 +1,6 @@
 package com.care.turbo.hilt.ui.main.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
+ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,11 +11,10 @@ import com.care.turbo.hilt.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @HiltViewModel
-class MainViewModel @Inject constructor(
-    private val mainRepository: MainRepository,
-    private val networkHelper: NetworkHelper
-) : ViewModel() {
+class MainViewModel @Inject constructor(private val networkHelper: NetworkHelper,
+private val mainRepository: MainRepository) : ViewModel() {
 
     private val _users = MutableLiveData<Resource<List<User>>>()
     val users: LiveData<Resource<List<User>>> get() = _users

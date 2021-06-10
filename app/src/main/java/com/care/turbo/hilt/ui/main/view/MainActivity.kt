@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     private val mainViewModel: MainViewModel by viewModels()
     private lateinit var adapter: MainAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
